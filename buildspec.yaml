@@ -5,9 +5,9 @@ phases:
   install:
     commands:
       - "apt install unzip -y"
-      - "curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
-      - "unzip -o terraform.zip"
-      - "mv terraform /usr/local/bin"
+      - "wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
+      - "unzip terraform_${TF_VERSION}_linux_amd64.zip"
+      - "mv terraform /usr/local/bin/"
 
   pre_build:
     commands:
