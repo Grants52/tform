@@ -5,8 +5,15 @@ terraform {
       version = "~> 3.27"
     }
   }
-
   required_version = ">= 1.1.0"
+  backend "s3" {
+    # Replace this with your bucket name!
+    bucket         = "stech-terraform-state"
+    key            = "global/s3/terraform.tfstate"
+    region         = "eu-west-2"   
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
